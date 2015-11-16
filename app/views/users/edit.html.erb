@@ -1,0 +1,19 @@
+<!-- users.edit.html.erb -->
+<br>
+<h3>Edit Your Contact and Balance Info</h3>
+<%= form_for @user do |f|%>
+<%= f.label :FirstName %> <br>
+<%= f.text_field :fname %><br>
+<%= f.label :LastName %> <br>
+<%= f.text_field :lname %><br>
+<%= f.label :Email %> <br>
+<%= f.text_field :email %><br>
+<%= f.label :Phone %><br>
+<%= f.text_field :phone %><br>
+<%= f.label :CashBalance %><br>
+<%= f.text_field :cash_bal %><br>
+<%= f.submit %>
+<% end %>
+<br>
+<br>
+<%= link_to "Delete Account", user_path, method: :delete %>

@@ -1,0 +1,23 @@
+<!-- user.show.html.erb -->
+<br>
+<h1>Confirm Your Contact Info</h1>
+<br>
+<br>
+<h3><%= "Full Name:  #{@user.fname} #{@user.lname}" %></h3>
+<br>
+<h3><%= "Email:  #{@user.email}" %></h3>
+<br>
+<h3><%= "Phone:  #{@user.phone}" %></h3>
+<br>
+<h3><%= "Cash Balance:   #{@user.cash_bal}" %> </h3>
+<br>
+<br>
+<br>
+<%= link_to "Log Out", logout_path, method: :delete %>
+<br>
+<br>
+<%= link_to "EDIT your contact info", edit_user_path(@user.id) %>
+<br>
+<br>
+<%= link_to "Go to Credit Cards", new_card_path %>
+
