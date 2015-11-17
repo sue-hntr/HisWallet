@@ -7,5 +7,15 @@
 <br>
 <h3><%= "Card Number:  #{@card.cardnum}" %></h3>
 <br>
-<br><h3><%= @card.expire_m %> / <%= @card.expire_y %> </h3>
+<h3><%= "Expiration Date:   #{@card.expire_m} / #{@card.expire_y}" %></h3>
+<br>
+<br>
+<%= link_to "Edit this credit card info", edit_card_path(@card.id) %>
+<br>
+<br>
+<%= link_to "Log Out", logout_path, method: :delete %>
+<br>
+<br>
+<%= link_to "Look at ALL of your Cards and options", cards_path %> 
+<br>
 <br>

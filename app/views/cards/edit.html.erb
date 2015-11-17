@@ -1,0 +1,22 @@
+<!-- cards.edit.html.erb -->
+<br>
+<h3>Edit This Credit Card Info</h3>
+<%= form_for @card do |f|%>
+<%= f.label :Card_number %> <br>
+<%= f.text_field :cardnum %><br>
+<%= f.label :Card_Type %> <br>
+<%= f.text_field :cardtype %><br>
+<%= f.label :Expiration_Month %> <br>
+<%= f.text_field :expire_m %><br>
+<%= f.label :Expiration_Year %><br>
+<%= f.text_field :expire_y %><br>
+<%= f.submit %>
+<% end %>
+<br>
+<br>
+<%= link_to "Log Out", logout_path, method: :delete %>
+<br>
+<br>
+<%= link_to "Look at ALL of your Cards and options", cards_path %> 
+<br>
+<br>
