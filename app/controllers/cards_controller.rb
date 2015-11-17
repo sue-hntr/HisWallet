@@ -6,7 +6,9 @@ class CardsController < ApplicationController
 		@user = current_user
 		session[:user_id] = @user.id
 #		@card = Card.find(card_params[:id])
-		@cards = Card.all
+		@card = @user.cards
+		@allcards = Card.all
+		# @u_cards = @user.cards
 	end
 
 	def new
@@ -48,16 +50,21 @@ class CardsController < ApplicationController
 		end
 	end
 
-
-
-
-
-
 	def show
 		@user = current_user
 		session[:user_id] = @user.id
 		@card = Card.find(params[:id])
 	end
+
+	def destroy
+		@card = Card.find(params[:id])
+		flash[:alert] = "This credit card is removed."
+		@card.destroy
+		session[:user_id] = @user.id
+		redirect_to user_path(@user.id)
+	end
+
+
 
 
 	private

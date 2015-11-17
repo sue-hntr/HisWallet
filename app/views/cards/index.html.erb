@@ -9,14 +9,15 @@ asks if want to choose from other's user_cards -->
    	<td><h3>CardType</h3></td>
     <td><h3>CardNumber</h3></td>
     <td><h3>Expiration</h3></td>
-        <td><h3>ADD/REMOVE</h3></td>
-
+    <td><h3>id</h3></td>
+    <td><h3>ADD/REMOVE</h3></td>
   </tr>
 <% @cards.each do |w| %>
 <tr>
 	<td><%= w.cardtype %></td>
 	<td><%= w.cardnum %></td>   
 	<td><%= "#{w.expire_m}  /  #{w.expire_y}" %></td>
+	<td><%= w.id %>
 	<!-- IF -->
 	<td><%=link_to "Add Card", root_path %></td>
 	<!-- Else -->
@@ -24,4 +25,41 @@ asks if want to choose from other's user_cards -->
 </tr>
 <%end%>
 </table>
+<br>
+<br>
+<h1>Other Credit Cards, <%= "#{@user.fname}" %> </h1>
+<table border="1" style="width:100%">
+ <tr>    
+   	<td><h3>CardType</h3></td>
+    <td><h3>CardNumber</h3></td>
+    <td><h3>Expiration</h3></td>
+    <td><h3>id</h3></td>
+    <td><h3>ADD/REMOVE</h3></td>
+  </tr>
+  <% @allcards.each do |w| %>
+ <tr>
+	<td><%= w.cardtype %></td>
+	<td><%= w.cardnum %></td>   
+	<td><%= "#{w.expire_m}  /  #{w.expire_y}" %></td>
+	<td><%= w.id %>
+	<!-- IF -->
+	<%= if w.id == @card.where(w.id) %>
+		<span
+			><td>
+				<%=link_to "Remove Card", root_path %>
+			</td>
+		</span>
+	<%= else %>
+		<span>
+			<td>
+				<%=link_to "Add Card", root_path %>
+			</td>
+		</span>
+	<%= end %>
+	<!-- Else -->
+	<!-- IF USER.CARDS INCLUDES W, SHOW REMOVE LINK, ELSE SHOW ADD LINK -->
+ </tr>
+<%end%>
+</table>
+<br>
 <br>
