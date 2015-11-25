@@ -1,27 +1,95 @@
 <!-- cards.index.html.erb -->
-
-<!-- shows current_user his or her cards
-asks if want to choose from other's user_cards -->
-<br>
-<h1>Here are your credit cards, <%= "#{@user.fname}" %> </h1>
-<table border="1" style="width:100%">
-   <tr>    
-   	<td><h3>CardType</h3></td>
-    <td><h3>CardNumber</h3></td>
-    <td><h3>Expiration</h3></td>
-        <td><h3>ADD/REMOVE</h3></td>
-
-  </tr>
-<% @cards.each do |w| %>
-<tr>
-	<td><%= w.cardtype %></td>
-	<td><%= w.cardnum %></td>   
-	<td><%= "#{w.expire_m}  /  #{w.expire_y}" %></td>
-	<!-- IF -->
-	<td><%=link_to "Add Card", root_path %></td>
-	<!-- Else -->
-	<!-- IF USER.CARDS INCLUDES W, SHOW REMOVE LINK, ELSE SHOW ADD LINK -->
-</tr>
-<%end%>
-</table>
-<br>
+<nav>
+	<div class = "purple">
+		<div class="row"><!-- ######  row 2 open ##### --> 
+				<div class="col-xs-1"><!--  row2 col1 -->
+				</div>
+				<div class="col-xs-6"><!--  row2 col2 -->
+				</div>
+				<div class="col-xs-2"> <!--  row2 col3 -->
+					<h5>
+						<%= link_to "Contact Info", edit_user_path(@user.id) %>
+					</h5>	
+				</div>
+				<div class="col-xs-2"> <!--  row2 col4 -->
+					<h5>
+						<%= link_to "Log Out", logout_path %>
+					</h5>
+				</div>
+				<div class="col-xs-1"><!--  row2 col5 -->
+				</div>
+		</div> <!-- row 2 close -->
+		<div class="row"><!-- ######  row 3 open ####### --> 
+				<div class="col-xs-12">
+					<h5>
+						&nbsp
+					</h5>
+				</div> <!-- close row 3, col -->
+		</div> <!-- close row 3 -->
+	</div> <!-- close purple -->
+</nav>
+		<div class="row"><!-- ######  row 2 open ##### --> 
+				<div class="col-xs-12"><!--  row2 col1 -->
+						<h1>Complete Gift Card Accounts List </h1>
+						<h3><%= "#{@user.fname}" %>, your gift cards are listed as <u>Remove Card</u></b></h1>
+						<table border="1" style="width:100%">
+						 <tr>    
+						   	<td><h3>CardType</h3></td>
+						    <td><h3>CardNumber</h3></td>
+						    <td><h3>Expiration</h3></td>
+						    <td><h3>ADD/REMOVE</h3></td>
+						  </tr>
+						  <% @allcards.each do |w| %>
+						 <tr>	
+							<td><%= w.cardtype %></td>
+							<td><%= w.cardnum %></td>   
+							<td><%= "#{w.expire_m}  /  #{w.expire_y}" %></td>
+							<% if @user_cards.include?(w)%>
+								<span>
+									<td>
+										<%=link_to "Remove Card", card_remove_path({id: w.id}), method: :post %>
+									</td>
+								</span>
+							<% else %>
+								<span>
+									<td>
+										<%=link_to "Add Card", card_add_path({id: w.id}), method: :post %>
+									</td>
+								</span>
+							<% end %>
+						 </tr>
+						<%end%>
+						</table>
+<nav>
+<div class="purple">
+	<div class="row"><!--  ###### row 5 open ###### --> 
+		<div class="col-xs-1">
+			<h5>
+				&nbsp
+			</h5>
+		</div>
+		<div class="col-xs-5">
+			<h5>
+				<%= link_to "Put In New Credit Cards", new_card_path %>
+			</h5>
+		</div>
+		<div class="col-xs-5">
+			<h5>
+				&nbsp
+			</h5>
+		</div>
+		<div class="col-xs-1">
+			<h5>
+				&nbsp
+			</h5>
+		</div>
+	</div> <!-- close row 5 -->
+	<div class="row"><!-- ######  row 6 open ####### --> 
+			<div class="col-xs-12">
+				<h5>
+					&nbsp
+				</h5>
+			</div>
+		</div> <!-- close row 6 -->
+</div> <!-- close purple -->
+</nav> 

@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HisWallet</title>
+  <title>CardSwap</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+<!-- _______ bootstrap tags below ___________ -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- _______ bootstrap tags above ___________ -->
+
 </head>
 <body>
-	<% if flash[:notice] %>
+<!--  ########### error notices below ############## -->
+<% if flash[:notice] %>
 	<div class="flash notice">
 		<span class=alert> 
 				<%= flash[:notice] %> 
@@ -28,9 +47,25 @@
 		</span>
 	</div>
 <% end %>
+<!--  ########### error notices above ############## -->
+<!--  ########### bootstrap columns below ############## -->
+
+<div class="container-fluid">
+		<!-- ________________FIRST ROW  LOGO_______________________-->
+	<div class = "big_wrap">	
+		<div class = "purple">
+			<div class="row"><!-- row 1 open -->
+				<div class="col-xs-12">
+					<h1>GiftCard Swap</h1>
+				</div> <!-- row 1 col 2 close -->
+			</div> <!-- row 1 close -->
+		</div> <!-- close purple -->
+
 
 
 <%= yield %>
 
+
+</div><!--  close big_wrap -->
 </body>
 </html>

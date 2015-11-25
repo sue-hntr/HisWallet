@@ -3,16 +3,33 @@ class CardsController < ApplicationController
 
 
 	def index
+		if current_user == nil
+			flash[:alert] = "Sign In"
+			redirect_to login_path
+			return
+		end
 		@user = current_user
-		session[:user_id] = @user.id
-#		@card = Card.find(card_params[:id])
-		@cards = Card.all
+		@user_cards = @user.cards
+		@allcards = Card.all
 	end
+
+	def remove
+		@user = current_user
+		@card = Card.find(params[:id])
+		@user.cards.destroy(@card)
+		redirect_to cards_path
+	end
+
+	def add
+		@user = current_user
+		@card = Card.find(params[:id])
+		@user.cards << @card
+		redirect_to cards_path
+	end
+
 
 	def new
 		@user = current_user
-		session[:user_id] = @user.id
-		puts @user.id
 		@card = Card.new
 	end
 
@@ -42,16 +59,12 @@ class CardsController < ApplicationController
 		@card = Card.find(params[:id])
 		session[:user_id]
 		if 	@card.update(card_params)
-			redirect_to card_path(@card)
+			flash[:alert] = "Your card info is updated"
+			redirect_to card_path(@card.id)
 		else
 			render :edit
 		end
 	end
-
-
-
-
-
 
 	def show
 		@user = current_user
@@ -59,6 +72,13 @@ class CardsController < ApplicationController
 		@card = Card.find(params[:id])
 	end
 
+	# def destroy
+	# 	@card = Card.find(params[:id])
+	# 	flash[:alert] = "This credit card is removed."
+	# 	@card.destroy
+	# 	session[:user_id] = @user.id
+	# 	redirect_to user_path(@user.id)
+	# end
 
 	private
 	def card_params

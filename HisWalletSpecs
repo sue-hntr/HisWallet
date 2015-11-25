@@ -1,0 +1,44 @@
+Users - Email (unique) 
+- Phone (correct format) OK	 
+- First Name (present) 	OK
+- Last Name (present) OK
+- Cash balance (cannot be below 0) OK
+
+Cards 
+- Card Number (valid format) OK
+- Card Type (auto-filled using a before_save hook - all cards can be identified by first few digits) NOPE
+- Expiration month (only 12 possible values) OK
+- Expiration year (valid format)OK
+
+UserCard 
+- Users can share their cards with other users 
+Build a simple interface to the application. 
+If you have extra time, use CSS and JS to make the front end truly interactive! 
+*NOTE: NEVER store real credit card information plain-text in a database! This app is JUST FOR FUN.
+
+cards.index
+
+<!-- shows current_user his or her cards
+asks if want to choose from other's user_cards -->
+<br>
+<h1>Here are your credit cards, <%= "#{@user.fname}" %> </h1>
+<table border="1" style="width:100%">
+   <tr>    
+   	<td><h3>CardType</h3></td>
+    <td><h3>CardNumber</h3></td>
+    <td><h3>Expiration</h3></td>
+    <td><h3>id</h3></td>
+    <td><h3>ADD/REMOVE</h3></td>
+  </tr>
+<% @cards.each do |w| %>
+<tr>
+	<td><%= w.cardtype %></td>
+	<td><%= w.cardnum %></td>   
+	<td><%= "#{w.expire_m}  /  #{w.expire_y}" %></td>
+	<td><%= w.id %>
+	<!-- IF -->
+	<td><%=link_to "Add Card", root_path %></td>
+	<!-- Else -->
+	<!-- IF USER.CARDS INCLUDES W, SHOW REMOVE LINK, ELSE SHOW ADD LINK -->
+</tr>
+<%end%>
