@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root 'users#new'
 
+  post 'addcard' => 'cards#add', as: :card_add
+  post 'removecard' => 'cards#remove', as: :card_remove
+
+
   get 'login' => 'sessions#new', as: :login
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

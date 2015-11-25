@@ -1,35 +1,39 @@
 <!-- users.new.html.erb -->
-<br>
-<h1>His Wallet App</h1>
-<h3>Sign Up or Log In? Current Accounts <%= link_to "Log In", login_path %>
-</h3>
-<br>
-<br>
-<br>
-<h1>New Users Sign Up Here</h1>
-<br>
-<%= form_for @user do |f| %>
-<%= f.label :FirstName %>
-<%= f.text_field :fname %>
-<br>
-<br>
-<%= f.label :LastName %>
-<%= f.text_field :lname %>
-<br>
-<br>
-<%= f.label	:email %>
-<%= f.text_field :email%>
-<br>
-<br>
-<%= f.label :Phone %>
-<%= f.text_field :phone %>
-<br>
-<br>
-<%= f.label :Cash_Balance %>
-<%= f.text_field :cash_bal %>
+<nav>
+	<div class = "purple">
+		<div class="row"><!--   row 2 open  --> 
+			<div class="col-xs-1"><!--  row2 col1 -->
+			</div>
+			<div class="col-xs-6"><!--  row2 col2 -->
+			</div>
+			<div class="col-xs-2"> <!--  row2 col3 -->
+				<h4>
+					
+				</h4>
+			</div>
+			<div class="col-xs-2"> <!--  row2 col4 -->
+				<h4>
+					<%= link_to "Log In", login_path %>
+				</h4>
+			</div>
+			<div class="col-xs-1"><!--  row2 col5 -->
+			</div>
+		</div> <!-- row 2 close -->
+		<div class="col-xs-12">
+		</div>
+	</div> <!-- close purple -->
+</nav>
 <br>
 <br>
-<%= f.submit "create" %>
+<h2>New Users Sign Up Here</h2>
+<br>
+<%= simple_form_for @user do |f| %>
+<%= f.input :fname, label: 'Your first name' %><br>
+<%= f.input :lname, label: 'Your last name' %><br>
+<%= f.input :email, label: 'Your email' %><br>
+<%= f.input :phone, label: 'Your phone' %><br>
+<%= f.input :cash_bal, label: 'Cash Balance $' %><br>
+<%= f.button :submit, "New Users Sign Up", class: "my-button" %>
 <% end %>
 
 

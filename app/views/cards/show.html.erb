@@ -1,21 +1,77 @@
 <!-- cards.show.html.erb -->
-<br>
-<h1>Confirm Your Credit Card Info</h1>
-<br>
-<br>
-<h3><%= "Card Type:  #{@card.cardtype}" %></h3>
-<br>
-<h3><%= "Card Number:  #{@card.cardnum}" %></h3>
-<br>
-<h3><%= "Expiration Date:   #{@card.expire_m} / #{@card.expire_y}" %></h3>
-<br>
-<br>
-<%= link_to "Edit this credit card info", edit_card_path(@card.id) %>
-<br>
-<br>
-<%= link_to "Log Out", logout_path, method: :delete %>
-<br>
-<br>
-<%= link_to "Look at ALL of your Cards and options", cards_path %> 
-<br>
-<br>
+<nav>
+	<div class = "purple">
+		<div class="row"><!-- ######  row 2 open ##### --> 
+				<div class="col-xs-1"><!--  row2 col1 -->
+				</div>
+				<div class="col-xs-6"><!--  row2 col2 -->
+				</div>
+				<div class="col-xs-2"> <!--  row2 col3 -->
+					<h5>
+						<%= link_to "Contact Info", edit_user_path(@user.id) %>
+					</h5>	
+				</div>
+				<div class="col-xs-2"> <!--  row2 col4 -->
+					<h5>
+						<%= link_to "Log Out", logout_path %>
+					</h5>
+				</div>
+				<div class="col-xs-1"><!--  row2 col5 -->
+				</div>
+		</div> <!-- row 2 close -->
+		<div class="row"><!-- ######  row 3 open ####### --> 
+				<div class="col-xs-12">
+					<h5>
+						&nbsp
+					</h5>
+				</div> <!-- close row 3, col -->
+		</div> <!-- close row 3 -->
+	</div> <!-- close purple -->
+</nav>
+	<div class="row"><!-- ######  row 4 open ##### --> 
+		<div class="col-xs-12"><!--  row2 col1 -->
+			<h1>Confirm Your Credit Card Info</h1>
+			<br>
+			<br>
+			<h3><%= "Card Type:  #{@card.cardtype}" %></h3>
+			<br>
+			<h3><%= "Card Number:  #{@card.cardnum}" %></h3>
+			<br>
+			<h3><%= "Expiration Date:   #{@card.expire_m} / #{@card.expire_y}" %></h3>
+			<br>
+			<br>
+		</div><!--  close row 4, col -->
+	</div> <!-- close row 4 -->
+<nav>
+<div class="purple">
+	<div class="row"><!--  ###### row 5 open ###### --> 
+		<div class="col-xs-1">
+			<h5>
+				&nbsp
+			</h5>
+		</div>
+		<div class="col-xs-5">
+			<h5>
+				<%= link_to "Put In New Credit Cards", new_card_path %>
+			</h5>
+		</div>
+		<div class="col-xs-5">
+			<h5>
+				<%= link_to "Look at ALL of the Credit Cards", cards_path %>
+			</h5>
+		</div>
+		<div class="col-xs-1">
+			<h5>
+				&nbsp
+			</h5>
+		</div>
+	</div> <!-- close row 5 -->
+	<div class="row"><!-- ######  row 6 open ####### --> 
+			<div class="col-xs-12">
+				<h5>
+					&nbsp
+				</h5>
+			</div>
+		</div> <!-- close row 6 -->
+</div> <!-- close purple -->
+</nav> 

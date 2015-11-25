@@ -1,16 +1,13 @@
 <!-- cards.edit.html.erb -->
 <br>
 <h3>Edit This Credit Card Info</h3>
-<%= form_for @card do |f|%>
-<%= f.label :Card_number %> <br>
-<%= f.text_field :cardnum %><br>
-<%= f.label :Card_Type %> <br>
-<%= f.text_field :cardtype %><br>
-<%= f.label :Expiration_Month %> <br>
-<%= f.text_field :expire_m %><br>
-<%= f.label :Expiration_Year %><br>
-<%= f.text_field :expire_y %><br>
-<%= f.submit %>
+<%= simple_form_for @card do |f| %>
+<%= f.input :cardnum, label: 'Credit Card Number' %><br>
+<%= f.input :cardtype, label: 'Credit Card Type' %><br>
+<h6>Expiration (i.e. June = 06)</h6>
+<%= f.input	:expire_m, label: 'Expiration Month' %><br>
+<%= f.input	:expire_y, label: 'Expiration Year' %> <br>
+<%= f.button :submit "Update this Credit Card", class: "my-button" %>
 <% end %>
 <br>
 <br>

@@ -1,0 +1,33 @@
+$wlt-green: #66FF33;
+$wlt-purple: #9C27B0;
+$wlt-gray: #E6E6E6;
+nav{
+	background-color: $wlt-purple;
+
+	h5{
+		color: white;
+		font-family: "Arial", sans-serif;
+		padding-left: 60px;
+		display: inline;
+	}
+	a{
+		color: white;
+		text-decoration: none;
+	}
+	a:link{
+		color: white;
+		text-decoration: none;
+	}
+	a:visited{
+		color: white;
+		text-decoration: none;
+	}
+	a:hover{
+		color: $wlt-gray;
+		text-decoration: underline;
+	}
+	a:active{
+		color: $wlt-gray;
+		text-decoration: underline;
+	}
+}
